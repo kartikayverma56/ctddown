@@ -9,7 +9,10 @@
 <body>
     <div class="container">
         <div class="content">
-            <div class="ring"><h1>Counting</h1></div>
+            <div class="ring">
+                <img src="./svg.gif" alt="">
+                <h1 id="countingText">Counting</h1>
+            </div>
             <div class="launch-time">
                 <div>
                     <p id="days">00</p>
@@ -45,6 +48,11 @@
             document.getElementById("hours").innerHTML = formatTime(hours);
             document.getElementById("minutes").innerHTML = formatTime(minutes);
             document.getElementById("seconds").innerHTML = formatTime(seconds);
+
+            // Update the font size based on the width of the ring
+            var ringWidth = document.querySelector('.ring').offsetWidth;
+            var fontSize = ringWidth * 0.09// Adjust the factor as needed
+            document.getElementById("countingText").style.fontSize = fontSize + 'px';
 
             if (distance < 0) {
                 clearInterval(x);
